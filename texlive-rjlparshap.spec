@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-rjlparshap
-Version:	20111102
+Version:	20111104
 Release:	1
 Summary:	TeXLive rjlparshap package
 Group:		Publishing
@@ -48,6 +48,7 @@ TeXLive rjlparshap package.
 #- source
 %doc %{_texmfdistdir}/source/latex/rjlparshap/rjlpshap.dtx
 %doc %{_texmfdistdir}/source/latex/rjlparshap/rjlpshap.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -58,3 +59,5 @@ TeXLive rjlparshap package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
