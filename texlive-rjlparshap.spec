@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-rjlparshap
 Version:	20111104
-Release:	5
+Release:	6
 Summary:	TeXLive rjlparshap package
 Group:		Publishing
 URL:		http://tug.org/texlive
