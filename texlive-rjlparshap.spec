@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-rjlparshap
-Version:	20170414
+Version:	1.0
 Release:	1
 Summary:	TeXLive rjlparshap package
 Group:		Publishing
