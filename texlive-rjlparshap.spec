@@ -1,6 +1,6 @@
 Name:		texlive-rjlparshap
 Version:	15878
-Release:	1
+Release:	2
 Summary:	TeXLive rjlparshap package
 Group:		Publishing
 URL:		http://tug.org/texlive
