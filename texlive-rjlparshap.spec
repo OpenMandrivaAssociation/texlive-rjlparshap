@@ -1,45 +1,23 @@
-Name:		texlive-rjlparshap
-Version:	15878
-Release:	2
-Summary:	TeXLive rjlparshap package
+%global tl_name rjlparshap
+%global tl_revision 15878
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
+Summary:	Support for use of \parshape in LaTeX
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/rjlparshap
+License:	lppl1.2
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/rjlparshap.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive rjlparshap package.
+The package provides macros and environments that relieve the programmer
+of some of the difficulties of using \parshape in LaTeX macros. It does
+not actually calculate shapes in the way that the shapepar package does.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/rjlparshap/rjlpshap.sty
-%doc %{_texmfdistdir}/doc/latex/rjlparshap/README
-%doc %{_texmfdistdir}/doc/latex/rjlparshap/rjlpshap.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/rjlparshap/rjlpshap.dtx
-%doc %{_texmfdistdir}/source/latex/rjlparshap/rjlpshap.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
